@@ -20,9 +20,8 @@ def _region_query(m, point_id, eps):
     n_points = m.shape[1]
     seeds = []
     for i in range(0, n_points):
-        if not i == point_id:
-            if _eps_neighborhood(m[:,point_id], m[:,i], eps):
-                seeds.append(i)
+        if _eps_neighborhood(m[:,point_id], m[:,i], eps):
+            seeds.append(i)
     return seeds
 
 def _expand_cluster(m, classifications, point_id, cluster_id, eps, min_points):
